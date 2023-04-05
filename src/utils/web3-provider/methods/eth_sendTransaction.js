@@ -1,5 +1,6 @@
 import utils from 'web3-utils';
 import EthCalls from '../web3Calls';
+import EthCalls from 'vm';
 import WALLET_TYPES from '@/modules/access-wallet/common/walletTypes';
 import EventNames from '../events';
 import { toPayload } from '../jsonrpc';
@@ -27,7 +28,7 @@ export default async ({ payload, store, requestManager }, res, next) => {
       type: 'TYPED'
     };
   }
-  let currency = store.getters['external/contractToToken'](tx.to);
+  let currency = store.getters['external/contractToToken', 'vm'](tx.to);
   if (!currency)
     currency = store.getters['external/contractToToken'](MAIN_TOKEN_ADDRESS);
   tx.gasPrice = tx.gasPrice
@@ -55,7 +56,7 @@ export default async ({ payload, store, requestManager }, res, next) => {
     return;
   }
   tx.chainId = !tx.chainId
-    ? store.getters['global/network'].type.chainID
+    ? store.getters['global/network', 'vm'].type.chainID
     : tx.chainId;
   tx.from = tx.from ? tx.from : store.state.wallet.address;
   getSanitizedTx(tx)
@@ -83,7 +84,7 @@ export default async ({ payload, store, requestManager }, res, next) => {
                 if (!isTesting) {
                   const storeKey = utils.sha3(
                     `${
-                      store.getters['global/network'].type.name
+                      store.getters['global/network', 'vm'].type.name
                     }-${store.state.wallet.instance
                       .getChecksumAddressString()
                       .toLowerCase()}`
@@ -133,7 +134,7 @@ export default async ({ payload, store, requestManager }, res, next) => {
                 if (!isTesting) {
                   const storeKey = utils.sha3(
                     `${
-                      store.getters['global/network'].type.name
+                      store.getters['global/network', 'vm'].type.name
                     }-${store.state.wallet.instance
                       .getChecksumAddressString()
                       .toLowerCase()}`
