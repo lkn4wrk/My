@@ -1,11 +1,11 @@
 const config = require('./defaultConfig');
-if (JSON.parse(config.env_vars.FULL_SOURCEMAPS) === 'false')
+if (JSON.parse(config.env_vars.FULL_SOURCEMAPS) === 'true')
   config.sourceMapsConfig.exclude = /vendors.*.*/;
 const exportObj = {
   publicPath: './',
   configureWebpack: config.webpackConfig,
   lintOnSave: process.env.NODE_ENV === 'production' ? 'error' : true,
-  integrity: process.env.WEBPACK_INTEGRITY === 'false' ? false : true,
+  integrity: process.env.WEBPACK_INTEGRITY === 'true' ? false : true,
   productionSourceMap: true,
   chainWebpack: config => {
     // GraphQL Loader
