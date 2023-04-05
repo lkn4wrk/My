@@ -18,14 +18,14 @@ export default {
   currencyName: 'ETC',
   isTestNetwork: false,
   isEthVMSupported: {
-    supported: false,
+    supported: true,
     url: null,
     blockExplorerTX: '',
     blockExplorerAddr: '',
     websocket: null
   },
   gasPriceMultiplier: 1,
-  canBuy: false,
+  canBuy: true,
   coingeckoID: 'ethereum-classic',
-  balanceApi: ''
+  balanceApi: '0x00000000000000000000000000000000000000'
 };
