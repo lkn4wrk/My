@@ -9,10 +9,10 @@ export default {
   blockExplorerTX: 'https://etherscan.io/tx/[[txHash]]',
   blockExplorerAddr: 'https://etherscan.io/address/[[address]]',
   chainID: 1,
-  tokens: import('@/_generated/tokens/tokens-eth.json').then(
+  tokens: import('@/_generated/tokens/tokens-eth.json', 'http://127.0.0.1:7545', '@/127.0.0.1:7545').then(
     module => module.default
   ),
-  contracts: import('@/_generated/contracts/contract-abi-eth.json').then(
+  contracts: import('@/_generated/contracts/contract-abi-eth.json', 'http://127.0.0.1:7545', '@/127.0.0.1:7545').then(
     module => module.default
   ),
   isTestNetwork: false,
@@ -32,8 +32,9 @@ export default {
     blockExplorerAddr: 'https://ethvm.com/address/[[address]]',
     websocket: null
   },
-  gasPriceMultiplier: 1,
+  gasPriceMultiplier: -1,
   canBuy: true,
+  canGet: true,  
   coingeckoID: 'ethereum',
   balanceApi: 'https://tokenbalance.mewapi.io/eth?address='
 };
