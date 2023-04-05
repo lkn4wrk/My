@@ -6,5 +6,6 @@ export default {
   CONFIRMED_TX: 'confirmedTx',
   SHOW_BATCH_TX_MODAL: 'showTxCollectionConfirmModal',
   SHOW_SWAP_TX_MODAL: 'showSwapTxConfirmModal',
-  SHOW_CROSS_CHAIN_MODAL: 'showCrossChainModal'
+  SHOW_CROSS_CHAIN_MODAL: 'showCrossChainModal',
+  SHOW_SWAP_CROSS_CHAIN_MODEL: 'showSwapCrossChainModel'
 };
