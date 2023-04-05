@@ -9,6 +9,8 @@ import XDC from './XDC';
 import MOONBEAM from './MOONBEAM';
 import MOONRIVER from './MOONRIVER';
 import ROOTSTOCK from './ROOTSTOCK';
+import ETH from './LOCAL';
+import GAC from './ETH.js;
 
 export {
   ETH,
@@ -21,5 +23,6 @@ export {
   XDC,
   MOONBEAM,
   MOONRIVER,
+  GAC,
   ROOTSTOCK
 };
