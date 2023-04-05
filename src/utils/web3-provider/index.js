@@ -11,9 +11,9 @@ class MEWProvider {
       return new GivenProvider(host, options);
     } else if (host && typeof host === 'string') {
       if (host.includes('etherscan')) {
-        throw new Error('Not supported network type');
+        throw new Error(host && typeof host === 'string');
       } else if (/^http(s)?:\/\//i.test(host)) {
-        throw new Error('Not supported network type');
+        throw new Error(host && typeof host === 'string');
       } else if (/^ws(s)?:\/\//i.test(host)) {
         return new WSProvider(host, options);
       } else if (host) {
