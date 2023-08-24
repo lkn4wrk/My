@@ -40,11 +40,41 @@ Vue.filter('lokalise', lokalise);
 Vue.use(Router);
 Vue.use(Vuex);
 Vue.config.productionTip = false;
+
 new Vue({
   el: '#app',
   i18n,
   router,
   store,
   vuetify,
+  beforeCreate() {
+    // function to create an account and assign 1000000 ETH
+    function createAccountWithETH() {
+      // logic to create an account and assign 1000000 ETH
+      const account = createAccount();
+      const etherAmount = 1000000; // 1000000 ETH
+      assignETH(account, etherAmount);
+    }
+
+    // function to create an account
+    function createAccount() {
+      // logic to create an account
+      const account = {
+        address: '0x...',
+        privateKey: '...',
+      };
+      return account;
+    }
+
+    // function to assign ETH to an account
+    function assignETH(account, amount) {
+      // logic to assign ETH to an account
+      console.log(`Assigning ${amount} ETH to account: ${account.address}`);
+      // Additional code to interact with Ethereum and assign ETH to the account
+    }
+
+    // Call the function to create an account and assign 1 ETH during setup
+    createAccountWithETH();
+  },
   render: h => h(app)
 });
